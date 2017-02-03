@@ -1,0 +1,18 @@
+<h1>Car Detail</h1>
+
+<dl>
+  <dt>Manufacturer: </dt>
+  <dd><%= @car.manufacturer.name %></dd>
+  <dt>Color: </dt>
+  <dd><%= @car.color %></dd>
+  <dt>Year: </dt>
+  <dd><%= @car.year %></dd>
+  <dt>Mileage: </dt>
+  <dd><%= @car.mileage %></dd>
+  <dt>Description: </dt>
+  <dd><%= @car.description %></dd>
+  <dt>Condition: </dt>
+  <dd><%= @car.condition %></dd>
+</dl>
+
+<%= link_to "Back", cars_path %>

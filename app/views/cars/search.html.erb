@@ -1,0 +1,19 @@
+<h1>Search Results</h1>
+<br />
+<% if @cars.empty? %>
+<p>No results found.</p>
+<% else %>
+<p><%= "#{@cars.count} result(s) found." %></p>
+
+<div class="records">
+  <ul class="unstyled">
+    <% @cars.each do |car| %>
+      <li>
+        <%= link_to "#{car.color}-#{car.year} #{car.mileage}", car %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<%= link_to "Back", cars_path %>

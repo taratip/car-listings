@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Car Listings" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="contain-to-grid">
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1><%= link_to "Car Listings", root_path %></h1>
+          </li>
+        </ul>
+        <section class="top-bar-section">
+          <ul class="left">
+            <li><%= link_to "Car Manufacturers", manufacturers_path %></li>
+            <li><%= link_to "Cars", cars_path %></li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+    <% flash.each do |type, message| %>
+      <div data-alert class="alert-box <%= type %>">
+        <%= message %>
+        <%= link_to "x", "#", class: :close %>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
